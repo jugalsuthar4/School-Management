@@ -10,7 +10,7 @@ const registerStudent = async (student: IStudent) => {
 
     if (checkStudentExistOrNot) {
       const err: CustomError = {
-        customMessage: `student with ${student.username} already exist`,
+        customMessage: `student with username ${student.username} already exist`,
         statusCode: 400,
       };
       throw err;

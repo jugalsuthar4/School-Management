@@ -51,6 +51,7 @@ app.use(cors());
 app.use(express.json());
 
 app.disable("etag"); // Disables caching
+
 morgan.token("remote-addr", (req: any) => {
   return req.header("X-Real-IP") || req.ip;
 });
