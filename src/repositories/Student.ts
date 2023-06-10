@@ -26,4 +26,4 @@ const checkStudentExists = async (username: string): Promise<boolean> => {
   }
 };
 
-export { InsertStudent, checkStudentExists };
+export default { InsertStudent, checkStudentExists };

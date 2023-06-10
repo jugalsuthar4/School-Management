@@ -1,11 +1,22 @@
 import IStudent from "../Interface/IStudent";
 import { CustomError } from "../middleware/error";
-import { InsertStudent } from "../repositories/Student";
+import studentRepository from "../repositories/Student";
 
-export const registerStudent = async (student: IStudent) => {
+const registerStudent = async (student: IStudent) => {
   try {
     // Insert the student into the database
-    const result = await InsertStudent(student);
+
+    const checkStudentExistOrNot = await studentRepository.checkStudentExists(student.username);
+
+    if (checkStudentExistOrNot) {
+      const err: CustomError = {
+        customMessage: `student with ${student.username} already exist`,
+        statusCode: 400,
+      };
+      throw err;
+    }
+
+    const result = await studentRepository.InsertStudent(student);
     if (!result.Success) {
       const err: CustomError = {
         statusCode: 500,
@@ -24,3 +35,5 @@ export const registerStudent = async (student: IStudent) => {
     };
   }
 };
+
+export default { registerStudent };
