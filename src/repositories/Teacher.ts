@@ -2,13 +2,17 @@ import ITeacher from "../Interface/ITeacher";
 import { Teacher } from "../model/user";
 
 // Repository method to insert a teacher into the database
-const InsertTeacher = async (teacherData: ITeacher): Promise<ITeacher> => {
+const InsertTeacher = async (teacherData: ITeacher): Promise<{ Success: boolean }> => {
   try {
     const teacher = new Teacher(teacherData);
-    const savedTeacher = await teacher.save();
-    return savedTeacher;
+    await teacher.save();
+    return {
+      Success: true,
+    };
   } catch (error) {
-    throw new Error(`Failed to insert teacher: ${error.message}`);
+    return {
+      Success: false,
+    };
   }
 };
 
