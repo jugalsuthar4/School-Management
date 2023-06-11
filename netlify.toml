@@ -1,0 +1,6 @@
+[build]
+command = "tsc && node dist/index.js"  # Replace this with your build command
+
+[build.environment]
+
+NODE_VERSION = "18"  # Replace this with your desired Node.js version

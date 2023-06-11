@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint . --ext .ts",
-    "prod": "tsc&& node dist/index.js",
+    "prod": "tsc && node dist/index.js",
     "start": "tsc-watch --onSuccess \"node dist/index.js\""
   },
   "keywords": [],
@@ -27,6 +27,7 @@
     "helmet": "^7.0.0",
     "mongoose": "^7.2.3",
     "morgan": "^1.10.0",
+    "tsc": "^2.0.4",
     "winston": "^3.9.0"
   }
 }
