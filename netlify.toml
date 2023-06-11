@@ -1,6 +1,5 @@
 [build]
-command = "npm install typescript  && tsc && node dist/index.js"  # Replace this with your build command
+command = "npm install typescript && npx tsc --outDir dist && node dist/index.js"
 
 [build.environment]
-
 NODE_VERSION = "18"  # Replace this with your desired Node.js version
